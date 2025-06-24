@@ -1,12 +1,18 @@
 package Entities;
 
+import java.util.*;
+import Equipables.skill.*;
 import Races.*;
 import Archetypes.*;
+
+import static java.lang.System.out;
+
 public abstract class Entity{
     private String name;
     private Race race;
     private String alignment;
     private Archetype archetype;
+    private List<Skills> skillList = new LinkedList<>();
 
     public Entity(String name, Race race, String alignment, Archetype archetype)
     {
@@ -23,8 +29,8 @@ public abstract class Entity{
         this.name = name;
     }
 
-    public String getRace() {
-        return race.getRaceName();
+    public Race getRace() {
+        return race;
     }
 
     public void setRace(Race race) {
@@ -39,12 +45,35 @@ public abstract class Entity{
         this.alignment = alignment;
     }
 
-    public String getArchetype() {
-        return archetype.getArchetypeName();
+    public Archetype getArchetype() {
+        return archetype;
     }
 
     public void setArchetype(Archetype archetype) {
         this.archetype = archetype;
     }
+
+    public List<Skills> getSkillList() {
+        return skillList;
+    }
+
+    public void addSkills(Skills skill){
+        for (Skills s : skillList)
+        {
+            if (skill.getName().equalsIgnoreCase(s.getName()))
+            {
+                if (skill.getGrade().getStatBoost(skill.getGrade().getGradeName()) > s.getGrade().getStatBoost(s.getGrade().getGradeName()))
+                {
+                    skillList.remove(s);
+                    skillList.add(skill);
+                }
+                else
+                {
+                    out.println("You have a Skill of higher grade, This Skill will be disposed!");
+                }
+            }
+        }
+    }
+
 
 }

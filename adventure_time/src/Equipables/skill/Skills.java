@@ -8,7 +8,52 @@ public abstract class Skills {
     private String type;
     private String condition;
 
-    public abstract boolean equipTo(Player player);
+    public boolean equipTo(Player player){
+        String[] conditions = getCondition().split(" ");
+        if (conditions.length == 2)
+        {
+            if (conditions[0].substring(0,1).equalsIgnoreCase("R")) {
+                String[] races = conditions[1].split(",");
+                for (String race : races)
+                {
+                    if (player.getRace().getRaceName().equalsIgnoreCase(race))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else if (conditions[0].substring(0,1).equalsIgnoreCase("C")) {
+                String[] archetypes = conditions[1].split(",");
+                for (String archetype : archetypes)
+                {
+                    if (player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    {
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (conditions.length == 3)
+        {
+            String[] races = conditions[1].split(",");
+            String[] archetypes = conditions[2].split(",");
+            for (String race: races)
+            {
+                for(String archetype: archetypes)
+                {
+                    if (player.getRace().getRaceName().equalsIgnoreCase(race) && player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     public abstract void displaySkillBook();
 
@@ -45,7 +90,6 @@ public abstract class Skills {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
-
 
     public String getCondition() {
         return condition;

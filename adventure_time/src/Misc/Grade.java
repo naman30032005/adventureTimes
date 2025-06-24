@@ -10,7 +10,7 @@ public class Grade {
 
     public int getStatBoost(String grade)
     {
-        return switch(grade)
+        return switch(grade.strip())
         {
             case "Common","common","COMMON" -> 1;
             case "Uncommon","uncommon","UNCOMMON" -> 3;

@@ -1,6 +1,7 @@
 package Equipables.skill;
 
 import Entities.*;
+import Races.Race;
 
 import static java.lang.System.out;
 
@@ -11,37 +12,6 @@ public class AttackSkills extends ActiveSkills{
         super(name,grade,type,statToBoost,condition,skillArea,mpConsumption);
     }
 
-    @Override
-    public boolean equipTo(Player player){
-        String[] conditions = getCondition().split(" ");
-        if (conditions.length == 2)
-        {
-            String[] races = conditions[1].split(",");
-            for (String race : races)
-            {
-                if (player.getRace().equalsIgnoreCase(race))
-                {
-                    return true;
-                }
-            }
-        }
-        else if (conditions.length == 3)
-        {
-            String[] races = conditions[1].split(",");
-            String[] archetypes = conditions[2].split(",");
-            for (String race: races)
-            {
-                for(String archetype: archetypes)
-                {
-                    if (player.getRace().equalsIgnoreCase(race) && player.getArchetype().equalsIgnoreCase(archetype))
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
     @Override
     public void performAction(Skills skill, Entity entity){out.println("hello");}
 }

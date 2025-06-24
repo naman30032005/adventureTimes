@@ -8,12 +8,5 @@ public class Player extends Entity{
     {
         super(name, race, alignment,archetype);
     }
-    public String getRace()
-    {
-        return getRace();
-    }
-    public String getArchetype()
-    {
-        return getArchetype();
-    }
+
 }

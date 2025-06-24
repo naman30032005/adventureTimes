@@ -17,62 +17,31 @@ public abstract class ActiveSkills extends Skills{
 
     @Override
     public void displaySkillBook() {
-        int dashes = getName().length() + 8;
-        int empty = getName().length() + 8;;
-        int gradeSpaceLeft = 0;
-        int gradeSpaceRight = 0;
-        String fmt = String.format("[%s + %d]",getStatToBoost(),getGrade().getStatBoost(gradeName));
-        int statSpaceLeft = 0;
-        int statSpaceRight = 0;
-        if (getName().length() > gradeName.length())
-        {
-            if (getName().length() % 2 == 0) {
-                if (gradeName.length() % 2 == 0) {
-                    gradeSpaceLeft = (getName().length() - gradeName.length())/2 + 3;
-                    gradeSpaceRight = gradeSpaceLeft;
-                }
-                else {
-                    gradeSpaceLeft = (getName().length() - gradeName.length()+1)/2 + 2;
-                    gradeSpaceRight = gradeSpaceLeft + 1;
-                }
+        // total number of characters per line
+        int charactersToDisplay = 40;
 
-                if (fmt.length() % 2 == 0)
-                {
-                    statSpaceLeft = (getName().length() - fmt.length())/2 + 4;
-                    statSpaceRight = statSpaceLeft;
-                }
-                else {
-                    statSpaceLeft = (getName().length() -fmt.length())/2 + 4;
-                    statSpaceRight = statSpaceLeft + 1;
-                }
-            }
-            else {
-                if (gradeName.length() % 2 == 0) {
-                    gradeSpaceLeft = (getName().length() - gradeName.length())/2 + 3;
-                    gradeSpaceRight = gradeSpaceLeft + 1;
-                }
-                else {
-                    gradeSpaceLeft = (getName().length() - gradeName.length()+1)/2 + 3;
-                    gradeSpaceRight = gradeSpaceLeft;
-                }
-                if (fmt.length() % 2 == 0)
-                {
-                    statSpaceLeft = (getName().length() - fmt.length())/2 + 4;
-                    statSpaceRight = statSpaceLeft + 1;
-                }
-                else {
-                    statSpaceLeft = (getName().length() - fmt.length()) / 2 + 4;
-                    statSpaceRight = statSpaceLeft;
-                }
-            }
+        int namelength = charactersToDisplay - getName().length();
+
+        int gradelength = charactersToDisplay - gradeName.length();
+
+        String fmt = String.format("[%s + %d]",getStatToBoost().toUpperCase(),getGrade().getStatBoost(gradeName));
+        if (fmt.length() % 2 != 0)
+        {
+            fmt += " ";
         }
-        out.println(" "+"-".repeat(dashes));
-        out.println("|" + " ".repeat(empty) + "|");
-        out.printf("|    %s    |\n",getName());
-        out.printf("|"+ " ".repeat(gradeSpaceLeft) +"(%s)"+ " ".repeat(gradeSpaceRight) +"|\n",gradeName);
-        out.println("|" + " ".repeat(statSpaceLeft) + fmt + " ".repeat(statSpaceRight)+ "|");
-        out.println("|" + " ".repeat(empty) + "|");
-        out.println(" "+"-".repeat(dashes));
+        int statlength = charactersToDisplay - fmt.length();
+
+
+
+        out.println(" " + "-".repeat(charactersToDisplay));
+        out.println("|" + " ".repeat(charactersToDisplay) + "|");
+        out.println("|" + " ".repeat(namelength/2) + getName() + " ".repeat(namelength/2) + "|");
+        out.println("|" + " ".repeat(gradelength/2) + gradeName + " ".repeat(gradelength/2) + "|");
+        out.println("|" + " ".repeat(statlength/2) + fmt + " ".repeat(statlength/2) + "|");
+        out.println("|" + " ".repeat(charactersToDisplay) + "|");
+        out.println("|" + " ".repeat((charactersToDisplay - 10)/2) + "Condition:" + " ".repeat((charactersToDisplay - 10)/2) + "|");
+        out.println("|" + " ".repeat(charactersToDisplay) + "|");
+        out.println(" " + "-".repeat(charactersToDisplay));
 
     }
 
