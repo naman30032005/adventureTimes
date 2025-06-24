@@ -26,13 +26,6 @@ public class PassiveSkills extends Skills{
 
         int gradelength = charactersToDisplay - gradeName.length();
 
-        String fmt = String.format("[%s + %d]",getStatToBoost().toUpperCase(),getGrade().getStatBoost(gradeName));
-        if (fmt.length() % 2 != 0)
-        {
-            fmt += " ";
-        }
-        int statlength = charactersToDisplay - fmt.length();
-
         boolean oneCondition;
         String fmtcondition,fmtcondition1 = "";
         int conditionlength,condition1length = 0;
@@ -77,7 +70,17 @@ public class PassiveSkills extends Skills{
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println("|" + " ".repeat(namelength/2) + getName() + " ".repeat(namelength/2) + "|");
         out.println("|" + " ".repeat(gradelength/2) + gradeName + " ".repeat(gradelength/2) + "|");
-        out.println("|" + " ".repeat(statlength/2) + fmt + " ".repeat(statlength/2) + "|");
+        if (statToBoost != null)
+        {
+            String fmt = String.format("[%s + %d]",getStatToBoost().toUpperCase(),getGrade().getStatBoost(gradeName));
+            if (fmt.length() % 2 != 0)
+            {
+                fmt += " ";
+            }
+            int statlength = charactersToDisplay - fmt.length();
+
+            out.println("|" + " ".repeat(statlength/2) + fmt + " ".repeat(statlength/2) + "|");
+        }
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println("|" + " ".repeat((charactersToDisplay - 10)/2) + "Condition:" + " ".repeat((charactersToDisplay - 10)/2) + "|");
         out.println("|" + " ".repeat(conditionlength/2) + fmtcondition + " ".repeat(conditionlength/2) + "|");
