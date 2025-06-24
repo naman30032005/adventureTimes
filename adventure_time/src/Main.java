@@ -12,7 +12,10 @@ public class Main {
             s.displaySkillBook();
             player1.addSkills(s);
         }
-        List<Skills> playerskills = player1.getSkillList();
-        System.out.println(playerskills.size());
+
+        for(Skills s: player1.getSkillList())
+        {
+            s.displaySkillBook();
+        }
     }
 }

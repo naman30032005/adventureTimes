@@ -57,21 +57,33 @@ public abstract class Entity{
         return skillList;
     }
 
+    //addSkills Method to add Skills to the Entity this Method also checks if the Entity already has that Skill if yes removes the skill with lower Grade and adds the skill with higher grade
     public void addSkills(Skills skill){
+        boolean skillFound = false;
         for (Skills s : skillList)
         {
             if (skill.getName().equalsIgnoreCase(s.getName()))
             {
+                skillFound = true;
                 if (skill.getGrade().getStatBoost(skill.getGrade().getGradeName()) > s.getGrade().getStatBoost(s.getGrade().getGradeName()))
                 {
+                    //out.println("removing skill");
                     skillList.remove(s);
+                    //out.println("Adding Skill");
                     skillList.add(skill);
+                    break;
                 }
                 else
                 {
                     out.println("You have a Skill of higher grade, This Skill will be disposed!");
+                    break;
                 }
             }
+        }
+        if (!skillFound)
+        {
+            //out.println("Adding Skill");
+            skillList.add(skill);
         }
     }
 

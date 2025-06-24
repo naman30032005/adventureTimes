@@ -8,7 +8,7 @@ public abstract class Skills {
     private String type;
     private String condition;
 
-    public boolean equipTo(Player player){
+    public void equipTo(Player player){
         String[] conditions = getCondition().split(" ");
         if (conditions.length == 2)
         {
@@ -18,7 +18,7 @@ public abstract class Skills {
                 {
                     if (player.getRace().getRaceName().equalsIgnoreCase(race))
                     {
-                        return true;
+                        player.addSkills(this);
                     }
                 }
             }
@@ -28,13 +28,9 @@ public abstract class Skills {
                 {
                     if (player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
                     {
-                        return true;
+                        player.addSkills(this);
                     }
                 }
-            }
-            else
-            {
-                return false;
             }
         }
         else if (conditions.length == 3)
@@ -47,12 +43,11 @@ public abstract class Skills {
                 {
                     if (player.getRace().getRaceName().equalsIgnoreCase(race) && player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
                     {
-                        return true;
+                        player.addSkills(this);
                     }
                 }
             }
         }
-        return false;
     }
 
     public abstract void displaySkillBook();
