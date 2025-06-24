@@ -34,11 +34,9 @@ public abstract class ActiveSkills extends Skills{
         boolean oneCondition;
         String fmtcondition,fmtcondition1 = "";
         int conditionlength,condition1length = 0;
-        if (getCondition().split(" ").length == 2)
-        {
+        if (getCondition().split(" ").length == 2) {
             oneCondition = true;
-            if (getCondition().split(" ")[0].substring(0,1).equalsIgnoreCase("R"))
-            {
+            if (getCondition().split(" ")[0].substring(0,1).equalsIgnoreCase("R")) {
                fmtcondition = String.format("(Race): %s",getCondition().split(" ")[1]);
                if (fmtcondition.length() % 2 != 0)
                {
@@ -56,8 +54,7 @@ public abstract class ActiveSkills extends Skills{
                 conditionlength = charactersToDisplay - fmtcondition.length();
             }
         }
-        else
-        {
+        else{
             oneCondition = false;
             fmtcondition = String.format("(Race): %s",getCondition().split(" ")[1]);
             fmtcondition1 = String.format("(Class): %s",getCondition().split(" ")[2]);
@@ -73,6 +70,25 @@ public abstract class ActiveSkills extends Skills{
             condition1length = charactersToDisplay - fmtcondition1.length();
         }
 
+        String area = "";
+        int arealength = 0;
+        if (getSkillArea().equalsIgnoreCase("S"))
+        {
+            area = "Skill Coverage : Single Entity";
+            arealength = charactersToDisplay - area.length();
+        }
+        else {
+            area = "Skill Coverage : Multiple Entities";
+            arealength = charactersToDisplay - area.length();
+        }
+
+        String fmtMp = String.format("[Mp Usage: %.0f]",getMpConsumption());
+        if (fmtMp.length() % 2 != 0)
+        {
+            fmtMp += " ";
+        }
+        int Mplength = charactersToDisplay - fmtMp.length();
+
         out.println(" " + "-".repeat(charactersToDisplay));
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println("|" + " ".repeat(namelength/2) + getName() + " ".repeat(namelength/2) + "|");
@@ -85,6 +101,8 @@ public abstract class ActiveSkills extends Skills{
         {
             out.println("|" + " ".repeat(condition1length/2) + fmtcondition1 + " ".repeat(condition1length/2) + "|");
         }
+        out.println("|" + " ".repeat(arealength/2) +area + " ".repeat(arealength/2) + "|");
+        out.println("|" + " ".repeat(Mplength/2) +fmtMp + " ".repeat(Mplength/2) + "|");
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println(" " + "-".repeat(charactersToDisplay));
 
