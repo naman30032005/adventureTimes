@@ -5,7 +5,6 @@ import Entities.*;
 import static java.lang.System.out;
 
 public class AttackSkills extends ActiveSkills{
-    private String gradeName = getGrade().getGradeName();
 
     public AttackSkills(String name, String grade, String type,String statToBoost, String condition,String skillArea,double mpConsumption)
     {

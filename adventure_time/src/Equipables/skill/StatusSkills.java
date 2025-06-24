@@ -1,10 +1,13 @@
 package Equipables.skill;
 
-import Entities.*;
-import static java.lang.System.*;
-public class DefenseSkills extends ActiveSkills{
+import Entities.Entity;
+import Entities.Player;
 
-    public DefenseSkills(String name, String grade, String type, String statToBoost,String condition,String skillArea,double mpConsumption)
+import static java.lang.System.out;
+
+public class StatusSkills extends ActiveSkills{
+
+    public StatusSkills(String name, String grade, String type,String statToBoost, String condition,String skillArea,double mpConsumption)
     {
         super(name,grade,type,statToBoost,condition,skillArea,mpConsumption);
     }
@@ -41,5 +44,5 @@ public class DefenseSkills extends ActiveSkills{
         return false;
     }
     @Override
-    public void performAction(Skills skill, Entity entity){out.println("Hello");}
+    public void performAction(Skills skill, Entity entity){out.println("hello");}
 }
