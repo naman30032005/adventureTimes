@@ -2,6 +2,7 @@ package Equipables.skill;
 
 import Entities.*;
 import Misc.Grade;
+import static java.lang.System.*;
 public abstract class Skills {
     private String name;
     private Grade grade;
@@ -20,6 +21,9 @@ public abstract class Skills {
                     {
                         player.addSkills(this);
                     }
+                    else {
+                        out.println("Sorry You cannot Equip this Skill!");
+                    }
                 }
             }
             else if (conditions[0].substring(0,1).equalsIgnoreCase("C")) {
@@ -30,11 +34,15 @@ public abstract class Skills {
                     {
                         player.addSkills(this);
                     }
+                    else {
+                        out.println("Sorry You cannot Equip this Skill!");
+                    }
                 }
             }
         }
         else if (conditions.length == 3)
         {
+            boolean skillEquipped = false;
             String[] races = conditions[1].split(",");
             String[] archetypes = conditions[2].split(",");
             for (String race: races)
@@ -44,15 +52,19 @@ public abstract class Skills {
                     if (player.getRace().getRaceName().equalsIgnoreCase(race) && player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
                     {
                         player.addSkills(this);
+                        skillEquipped = true;
                     }
                 }
+            }
+
+            if (!skillEquipped)
+            {
+                out.println("Sorry You cannot Equip this Skill!");
             }
         }
     }
 
     public abstract void displaySkillBook();
-
-    public abstract void performAction(Skills skill, Entity entity);
 
     public Skills(String name,String grade,String type, String condition)
     {

@@ -1,6 +1,8 @@
 package Equipables.skill;
 
-import static java.lang.System.out;
+import Entities.Entity;
+
+import static java.lang.System.*;
 
 public abstract class ActiveSkills extends Skills{
     private String statToBoost;
@@ -107,6 +109,10 @@ public abstract class ActiveSkills extends Skills{
         out.println(" " + "-".repeat(charactersToDisplay));
 
     }
+
+    public abstract void performAction(Skills skill, Entity entity);
+
+    //Getters and Setters
 
     public String getStatToBoost() {
         return statToBoost;

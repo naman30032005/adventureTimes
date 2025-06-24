@@ -29,6 +29,25 @@ public class GameSkills{
             {
                 gameSkillList.add(new DefenseSkills(elms[0],elms[1],elms[2],elms[3],elms[4],elms[5],Double.parseDouble(elms[6])));
             }
+            else if (elms[2].equalsIgnoreCase("Dodge"))
+            {
+                gameSkillList.add(new DodgeSkills(elms[0],elms[1],elms[2],elms[3],elms[4],elms[5],Double.parseDouble(elms[6])));
+            }
+            else if (elms[2].equalsIgnoreCase("Status"))
+            {
+                gameSkillList.add(new StatusSkills(elms[0],elms[1],elms[2],elms[3],elms[4],elms[5],Double.parseDouble(elms[6])));
+            }
+            else if (elms[2].equalsIgnoreCase("Passive"))
+            {
+                if (elms[3] == ""){
+                    gameSkillList.add(new PassiveSkills(elms[0],elms[1],elms[2],elms[4]));
+                }
+                else
+                {
+                    gameSkillList.add(new PassiveSkills(elms[0],elms[1],elms[2],elms[3],elms[4]));
+                }
+            }
+
         }
         return getGameSkillList();
     }
