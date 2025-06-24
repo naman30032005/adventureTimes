@@ -15,6 +15,7 @@ public abstract class ActiveSkills extends Skills{
         setMpConsumption(mpConsumption);
     }
 
+    @Override
     public void displaySkillBook() {
         int dashes = getName().length() + 8;
         int empty = getName().length() + 8;;

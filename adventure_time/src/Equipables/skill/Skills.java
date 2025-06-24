@@ -10,6 +10,8 @@ public abstract class Skills {
 
     public abstract boolean equipTo(Player player);
 
+    public abstract void displaySkillBook();
+
     public abstract void performAction(Skills skill, Entity entity);
 
     public Skills(String name,String grade,String type, String condition)
