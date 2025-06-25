@@ -43,3 +43,19 @@ cap variable would be used to Store the Xp required for the previous level;
 - lvl1 -> lvl2 : 50xp (needed)
 - lvl2 -> lvl3 : lvl1cap + (50 * Currentlvl) + (50 * random(0,1))
 - lvl3 -> lvl4 : lvl2cap + (50 * Currentlvl) + (50 * random(0,1))
+
+## Entity (Abstract Class)
+
+#### Attributes
+- name
+- Race
+- alignment : [Holy, Human, Demon]
+- archetype(Class)
+- Money
+- Stats : [ATK, DEF, VIT, INT, MP, AGL, CHA]
+
+#### Subclasses
+
+- Player
+- Enemy
+- Npc
