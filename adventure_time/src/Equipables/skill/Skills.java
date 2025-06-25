@@ -2,15 +2,69 @@ package Equipables.skill;
 
 import Entities.*;
 import Misc.Grade;
+import static java.lang.System.*;
 public abstract class Skills {
     private String name;
     private Grade grade;
     private String type;
     private String condition;
 
-    public abstract boolean equipTo(Player player);
+    public void equipTo(Player player){
+        String[] conditions = getCondition().split(" ");
+        if (conditions.length == 2)
+        {
+            if (conditions[0].substring(0,1).equalsIgnoreCase("R")) {
+                String[] races = conditions[1].split(",");
+                for (String race : races)
+                {
+                    if (player.getRace().getRaceName().equalsIgnoreCase(race))
+                    {
+                        player.addSkills(this);
+                    }
+                    else {
+                        out.println("Sorry You cannot Equip this Skill!");
+                    }
+                }
+            }
+            else if (conditions[0].substring(0,1).equalsIgnoreCase("C")) {
+                String[] archetypes = conditions[1].split(",");
+                for (String archetype : archetypes)
+                {
+                    if (player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    {
+                        player.addSkills(this);
+                    }
+                    else {
+                        out.println("Sorry You cannot Equip this Skill!");
+                    }
+                }
+            }
+        }
+        else if (conditions.length == 3)
+        {
+            boolean skillEquipped = false;
+            String[] races = conditions[1].split(",");
+            String[] archetypes = conditions[2].split(",");
+            for (String race: races)
+            {
+                for(String archetype: archetypes)
+                {
+                    if (player.getRace().getRaceName().equalsIgnoreCase(race) && player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    {
+                        player.addSkills(this);
+                        skillEquipped = true;
+                    }
+                }
+            }
 
-    public abstract void performAction(Skills skill, Entity entity);
+            if (!skillEquipped)
+            {
+                out.println("Sorry You cannot Equip this Skill!");
+            }
+        }
+    }
+
+    public abstract void displaySkillBook();
 
     public Skills(String name,String grade,String type, String condition)
     {
@@ -43,7 +97,6 @@ public abstract class Skills {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
-
 
     public String getCondition() {
         return condition;

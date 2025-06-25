@@ -1,16 +1,21 @@
+import Entities.Player;
 import Equipables.skill.*;
 import java.util.*;
 public class Main {
     public static void main(String[] args)
-    {/*
+    {
         GameSkills skills = new GameSkills();
 
+        Player player1 = new Player("IronDestrux",null,"Good",null);
         for (Skills s: skills.getGameSkillList())
         {
             s.displaySkillBook();
-        }*/
+            player1.addSkills(s);
+        }
 
-        ActiveSkills newSkill = new AttackSkills("Flaming Blade","Legendary","Defense","DEF","123456789","M",10);
-        newSkill.displaySkillBook();
+        for(Skills s: player1.getSkillList())
+        {
+            s.displaySkillBook();
+        }
     }
 }
