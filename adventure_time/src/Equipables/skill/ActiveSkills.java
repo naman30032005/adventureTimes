@@ -21,6 +21,7 @@ public abstract class ActiveSkills extends Skills{
     public void displaySkillBook() {
         // total number of characters per line
         int charactersToDisplay = 60;
+        int skillnamelength = charactersToDisplay - "active skill".length();
 
         int namelength = charactersToDisplay - getName().length();
 
@@ -92,6 +93,8 @@ public abstract class ActiveSkills extends Skills{
         int Mplength = charactersToDisplay - fmtMp.length();
 
         out.println(" " + "-".repeat(charactersToDisplay));
+        out.println("|" + " ".repeat(charactersToDisplay) + "|");
+        out.println("|" + " ".repeat(skillnamelength/2) + "Active Skill" + " ".repeat(skillnamelength/2) + "|");
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println("|" + " ".repeat(namelength/2) + getName() + " ".repeat(namelength/2) + "|");
         out.println("|" + " ".repeat(gradelength/2) + gradeName + " ".repeat(gradelength/2) + "|");

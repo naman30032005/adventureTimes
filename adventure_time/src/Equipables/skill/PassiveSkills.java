@@ -1,13 +1,11 @@
 package Equipables.skill;
 
-import Misc.Grade;
-
 import static java.lang.System.out;
 
 public class PassiveSkills extends Skills{
     private String statToBoost;
     private String gradeName = getGrade().getGradeName();
-    public PassiveSkills(String name,String grade,String type, String condition,String statToBoost)
+    public PassiveSkills(String name,String grade,String type, String statToBoost, String condition)
     {
         super(name, grade, type, condition);
         setStatToBoost(statToBoost);
@@ -21,6 +19,7 @@ public class PassiveSkills extends Skills{
     public void displaySkillBook() {
         // total number of characters per line
         int charactersToDisplay = 60;
+        int skillnamelength = charactersToDisplay - "passive  skill".length();
 
         int namelength = charactersToDisplay - getName().length();
 
@@ -67,6 +66,8 @@ public class PassiveSkills extends Skills{
 
 
         out.println(" " + "-".repeat(charactersToDisplay));
+        out.println("|" + " ".repeat(charactersToDisplay) + "|");
+        out.println("|" + " ".repeat(skillnamelength/2) + "Passive  Skill" + " ".repeat(skillnamelength/2) + "|");
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
         out.println("|" + " ".repeat(namelength/2) + getName() + " ".repeat(namelength/2) + "|");
         out.println("|" + " ".repeat(gradelength/2) + gradeName + " ".repeat(gradelength/2) + "|");
