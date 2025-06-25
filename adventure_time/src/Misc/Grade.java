@@ -1,11 +1,16 @@
 package Misc;
 
 /**
- * @Author : Naman
- * @Param : gradeName
- * @gradeName : name of the Grade
- * @Description : Represents a Grade with a name and stat boost.
- * Example grades: Common, Rare, Epic, etc.
+ * Represents a grade that boosts stats based on rarity.
+ *
+ * <p>Each grade corresponds to a predefined boost value:
+ * Common, Uncommon, Rare, Epic, Mythical, Legendary, and Godly.</p>
+ *
+ * Example usage:
+ *  <p>Grade grade = new Grade("Epic");</p>
+ *  <p>int boost = grade.getStatBoost(); // returns 10</p>
+ *
+ *  @author Naman
  * */
 public class Grade {
     private String gradeName;
