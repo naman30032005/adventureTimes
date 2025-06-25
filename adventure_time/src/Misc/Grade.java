@@ -1,5 +1,12 @@
 package Misc;
 
+/**
+ * @Author : Naman
+ * @Param : gradeName
+ * @gradeName : name of the Grade
+ * @Description : Represents a Grade with a name and stat boost.
+ * Example grades: Common, Rare, Epic, etc.
+ * */
 public class Grade {
     private String gradeName;
 
@@ -10,15 +17,15 @@ public class Grade {
 
     public int getStatBoost(String grade)
     {
-        return switch(grade.strip())
+        return switch(grade.strip().toLowerCase())
         {
-            case "Common","common","COMMON" -> 1;
-            case "Uncommon","uncommon","UNCOMMON" -> 3;
-            case "rare","Rare","RARE" -> 5;
-            case "Epic", "epic","EPIC" -> 10;
-            case "Mythical", "mythical","MYTHICAL" -> 15;
-            case "Legendary", "legendary","LEGENDARY" -> 30;
-            case "Godly","godly","GODLY" -> 50;
+            case "common" -> 1;
+            case "uncommon" -> 3;
+            case "rare" -> 5;
+            case "epic" -> 10;
+            case "mythical" -> 15;
+            case "legendary" -> 30;
+            case "godly" -> 50;
             default -> 0;
         };
     }
