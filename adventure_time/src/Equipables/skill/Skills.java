@@ -11,8 +11,8 @@ public abstract class Skills {
 
     public void equipTo(Entity entity){
         String[] conditions = getCondition().split(" ");
-        if (conditions.length == 2)
-        {
+        if (conditions.length == 1) entity.addSkills(this); // no condition
+        else if (conditions.length == 2) {
             if (conditions[0].substring(0,1).equalsIgnoreCase("R")) {
                 String[] races = conditions[1].split(",");
                 for (String race : races)
@@ -40,8 +40,7 @@ public abstract class Skills {
                 }
             }
         }
-        else if (conditions.length == 3)
-        {
+        else if (conditions.length == 3) {
             boolean skillEquipped = false;
             String[] races = conditions[1].split(",");
             String[] archetypes = conditions[2].split(",");

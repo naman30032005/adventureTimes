@@ -11,7 +11,12 @@ public class Main {
     public static void main(String[] args) {
         // Loads all the Skills to the Game
         GameSkills allSkills = new GameSkills();
-        /*openingLore();*/
+        /* openingLore(); */
+
+        for (Skills skill: allSkills.getGameSkillList())
+        {
+            skill.displaySkillBook();
+        }
     }
 
     public static void openingLore() {

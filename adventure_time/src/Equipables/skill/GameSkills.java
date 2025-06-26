@@ -1,25 +1,21 @@
 package Equipables.skill;
 
-import static java.lang.System.*;
 import java.util.*;
 import GameData.SqlFetchData;
 public class GameSkills{
     private List<Skills> gameSkillList = new LinkedList<>();
     public GameSkills()
     {
-        setGameSkillList(loadData());
+        loadData();
     }
 
-    public List<Skills> loadData()
-    {
+    public void loadData() {
         String query = "select * from skills";
         SqlFetchData sfd = new SqlFetchData(query);
 
         List<String> data = sfd.fetchData();
 
-
-        for (String s: data)
-        {
+        for (String s: data) {
             String[] elms = s.split("\\|");
             if (elms[2].equalsIgnoreCase("Attack"))
             {
@@ -49,7 +45,6 @@ public class GameSkills{
             }
 
         }
-        return getGameSkillList();
     }
 
     public List<Skills> getGameSkillList() {

@@ -100,11 +100,14 @@ public abstract class ActiveSkills extends Skills{
         out.println("|" + " ".repeat(gradelength/2) + gradeName + " ".repeat(gradelength/2) + "|");
         out.println("|" + " ".repeat(statlength/2) + fmt + " ".repeat(statlength/2) + "|");
         out.println("|" + " ".repeat(charactersToDisplay) + "|");
-        out.println("|" + " ".repeat((charactersToDisplay - 10)/2) + "Condition:" + " ".repeat((charactersToDisplay - 10)/2) + "|");
-        out.println("|" + " ".repeat(conditionlength/2) + fmtcondition + " ".repeat(conditionlength/2) + "|");
-        if (!oneCondition)
+        if (getCondition().split(" ").length != 1)
         {
-            out.println("|" + " ".repeat(condition1length/2) + fmtcondition1 + " ".repeat(condition1length/2) + "|");
+            out.println("|" + " ".repeat((charactersToDisplay - 10)/2) + "Condition:" + " ".repeat((charactersToDisplay - 10)/2) + "|");
+            out.println("|" + " ".repeat(conditionlength/2) + fmtcondition + " ".repeat(conditionlength/2) + "|");
+            if (!oneCondition)
+            {
+                out.println("|" + " ".repeat(condition1length/2) + fmtcondition1 + " ".repeat(condition1length/2) + "|");
+            }
         }
         out.println("|" + " ".repeat(arealength/2) +area + " ".repeat(arealength/2) + "|");
         out.println("|" + " ".repeat(Mplength/2) +fmtMp + " ".repeat(Mplength/2) + "|");

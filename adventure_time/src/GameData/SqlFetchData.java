@@ -14,8 +14,7 @@ public class SqlFetchData
         setQuery(query);
     }
 
-    public List<String> fetchData()
-    {
+    public List<String> fetchData() {
         List<String> data = new LinkedList<>();
         try (Connection conn = DriverManager.getConnection(connectionString)){
             Statement st = conn.createStatement();
@@ -45,6 +44,7 @@ public class SqlFetchData
         }
         return data;
     }
+
     public String getQuery() {
         return query;
     }
