@@ -9,7 +9,7 @@ public abstract class Skills {
     private String type;
     private String condition;
 
-    public void equipTo(Player player){
+    public void equipTo(Entity entity){
         String[] conditions = getCondition().split(" ");
         if (conditions.length == 2)
         {
@@ -17,9 +17,9 @@ public abstract class Skills {
                 String[] races = conditions[1].split(",");
                 for (String race : races)
                 {
-                    if (player.getRace().getRaceName().equalsIgnoreCase(race))
+                    if (entity.getRace().getRaceName().equalsIgnoreCase(race))
                     {
-                        player.addSkills(this);
+                        entity.addSkills(this);
                     }
                     else {
                         out.println("Sorry You cannot Equip this Skill!");
@@ -30,9 +30,9 @@ public abstract class Skills {
                 String[] archetypes = conditions[1].split(",");
                 for (String archetype : archetypes)
                 {
-                    if (player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    if (entity.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
                     {
-                        player.addSkills(this);
+                        entity.addSkills(this);
                     }
                     else {
                         out.println("Sorry You cannot Equip this Skill!");
@@ -49,9 +49,9 @@ public abstract class Skills {
             {
                 for(String archetype: archetypes)
                 {
-                    if (player.getRace().getRaceName().equalsIgnoreCase(race) && player.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
+                    if (entity.getRace().getRaceName().equalsIgnoreCase(race) && entity.getArchetype().getArchetypeName().equalsIgnoreCase(archetype))
                     {
-                        player.addSkills(this);
+                        entity.addSkills(this);
                         skillEquipped = true;
                     }
                 }
@@ -66,8 +66,7 @@ public abstract class Skills {
 
     public abstract void displaySkillBook();
 
-    public Skills(String name,String grade,String type, String condition)
-    {
+    public Skills(String name,String grade,String type, String condition) {
         setName(name);
         setGrade(new Grade(grade));
         setType(type);

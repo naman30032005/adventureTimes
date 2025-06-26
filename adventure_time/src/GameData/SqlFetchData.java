@@ -21,12 +21,27 @@ public class SqlFetchData
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
 
-            while(rs.next()) {
-                data.add(rs.getString(2) + "|" +  rs.getString(3) + "|" +  rs.getString(4) + "|" +  rs.getString(5) + "|" +  rs.getString(6) + "|" +  rs.getString(7) + "|" + rs.getDouble(8));
+            ResultSetMetaData meta = rs.getMetaData();
+            int columnCount = meta.getColumnCount();
+
+            while(rs.next())
+            {
+                StringBuilder row = new StringBuilder();
+
+                for(int i = 2; i <= columnCount; i++)
+                {
+                    row.append(rs.getString(i));
+                    if (i < columnCount)
+                    {
+                        row.append("|");
+                    }
+                }
+
+                data.add(row.toString());
             }
         }
         catch(SQLException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
         }
         return data;
     }

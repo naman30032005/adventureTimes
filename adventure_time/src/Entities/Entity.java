@@ -27,7 +27,6 @@ public abstract class Entity{
     }
 
 
-
     //addSkills Method to add Skills to the Entity this Method also checks if the Entity already has that Skill if yes removes the skill with lower Grade and adds the skill with higher grade
     public void addSkills(Skills skill){
         boolean skillFound = false;

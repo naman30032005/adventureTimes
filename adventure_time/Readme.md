@@ -59,3 +59,83 @@ cap variable would be used to Store the Xp required for the previous level;
 - Player
 - Enemy
 - Npc
+
+## Opening LORE (AI Generated)
+You remember the screen glowing in front of you.  
+Another late-night raid. Another victory.  
+You were *the* top-ranked player in **Crimson Rift Online** —  
+a game known for its brutal difficulty and unforgiving PvP.
+
+But then...
+
+Your vision blurred. Your heart skipped.
+
+One moment you were at your desk —  
+The next, you were surrounded by void.
+
+A soft chime echoed.
+
+> “You have died.”
+
+Another voice followed. Calm. Cold. Not human.
+
+> “System initializing... soul transfer complete.”
+> “Welcome, Player. You are no longer in your world.”
+
+A glowing interface appears before your eyes.
+
+SYSTEM MESSAGE:  
+Welcome, Player.
+
+Before you begin your new life in Sanctarum,  
+please configure your identity parameters.
+
+[1] Enter your Name:
+> [player inputs name]
+
+SYSTEM MESSAGE:  
+Name registered as [player name].
+
+Next, select your Race:
+1. Human — Versatile and resilient.
+2. Elf — Agile, attuned to magic and nature.
+3. Demonkin — Born of fire and shadow, powerful but feared.
+> [player inputs number]
+
+SYSTEM MESSAGE:  
+Race registered as [selected race].
+
+Alignment selection is next. This will influence your destiny and powers.  
+Choose wisely.
+
+1. Holy — Champion of light and justice.
+2. Human — Balanced, adaptable, master of many paths.
+3. Demon — Embrace darkness and raw power.
+> [player inputs number]
+
+SYSTEM MESSAGE:  
+Alignment registered as [selected alignment].
+
+Finally, choose your starting Class. Your path awaits.
+
+*If you need help, type “list” to see available classes for your alignment.*
+
+> [player inputs class name or types “list”]
+
+If "list":  
+HOLY: Guardian, Vowrunner, Sanctifier  
+HUMAN: Bladeborn, Shadowhand, Mindweaver  
+DEMON: Bloodknight, Nightblade, Hexborn
+
+> [player inputs choice]
+
+SYSTEM MESSAGE:  
+Class registered as [selected class].
+
+Loading your new body...
+
+---
+
+You awaken to the world of Sanctarum, your adventure begins now.
+
+Good luck, [player name].
